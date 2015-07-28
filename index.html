@@ -8,6 +8,37 @@
 </head>
 <body>
   <div id="contents"></div>
+  <div id="buttons" hidden style="margin-left: 20px;">
+    <br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="up-btn">^</button><br>
+    <button id="left-btn">&lt;</button>&nbsp;&nbsp;&nbsp;
+    <button id="right-btn">&gt;</button>&emsp;&emsp;<button id="b-btn">B</button>&emsp;<button id="a-btn">A</button><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="down-btn">v</button><br>
+
+  </div>
+
+  <script>
+  function key($,which){
+    var e = jQuery.Event('keydown');
+    e.which = which;
+    $('body').trigger(e);
+  }
+
+  function trigger_key($,which){
+    return function(){ key($,which) };
+  }
+
+  $(function(){
+    var $body = $('body');
+    $('#left-btn').click(trigger_key($,37));
+    $('#right-btn').click(trigger_key($,39));
+    $('#up-btn').click(trigger_key($,38));
+    $('#down-btn').click(trigger_key($,40));
+    $('#b-btn').click(trigger_key($,98));
+    $('#a-btn').click(trigger_key($,97));
+  });
+  </script>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>

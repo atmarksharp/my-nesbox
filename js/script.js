@@ -66,7 +66,7 @@ function chooseRom($, romList, callback){
 
   $parent.append("<h3>Choose a rom</h3>");
   $parent.append($sel);
-  $parent.append("<br><button id='choose-rom-submit'>OK</button>")
+  $parent.append("<br><br><button id='choose-rom-submit'>OK</button>")
   $contents.html($parent);
 
   $("#choose-rom-submit").click(function(e){
@@ -86,12 +86,14 @@ function showEmulator($){
   var dw = $(document).width();
   var dh = $(document).height();
   var w = (dw>640)? 640: dw;
-  var h = (dh>640)? 640: dh;
+  var h = (dh>480)? 480: dh;
 
   var $emu = $('<div>');
   $emu.attr('id','emulator');
-  $emu.css('width',w);
-  $emu.css('height',h);
+  if(dw>800){
+    $emu.css('width',w);
+    $emu.css('height',h);
+  }
   $emu.append("<p>To play this game, please, download the latest Flash player!</p>");
   $emu.append('<br>');
 
@@ -101,18 +103,8 @@ function showEmulator($){
 
   var $contents = $('#contents');
   $contents.html($emu);
-}
 
-function setEmulatorSize($){
-  var $emulator = $('#emulator');
-
-  var dw = $(document).width();
-  var dh = $(document).height();
-  var w = (dw>640)? 640: dw;
-  var h = (dh>640)? 640: dh;
-
-  $emulator.css('width',w);
-  $emulator.css('height',h);
+  // $("#buttons").removeAttr('hidden');
 }
 
 function setFlashVars($,romPath,romType){
@@ -147,7 +139,6 @@ $(function(){
     chooseRom($, romList, function(rom){
       // console.log(rom);
       showEmulator($);
-      setEmulatorSize($);
 
       setFlashVars($, rom.rom, rom.type);
       // setFlashVars($, romPath, romType);
