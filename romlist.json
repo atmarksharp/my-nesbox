@@ -1,6 +1,7 @@
 {
   "roms":{
     "Super Mario Bros. (NES)": {"rom":"super-mario-bros-j.nes", "type":"nes"},
+    "Kirby (GB)": {"rom":"kirby-j.gb","type":"gb"},
     "Rockman 2 (NES)": {"rom":"rockman-2-j.nes","type":"nes"}
   }
 }
