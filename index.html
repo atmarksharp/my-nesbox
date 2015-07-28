@@ -20,6 +20,7 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+  <script src="./lib/jquery.finger.min.js"></script>
   <script src="./js/script.js"></script>
 
   <script>
@@ -34,20 +35,20 @@
       $('body').trigger(e);
     }
 
-    function trigger_key($,which){
-      return function(){ key($,which) };
+    function trig_key(selector, which){
+      $(selector).on('tap',function(){ key($,which) });
     }
 
     $(function(){
       var $body = $('body');
-      $('#left-btn').click(trigger_key($,37));
-      $('#right-btn').click(trigger_key($,39));
-      $('#up-btn').click(trigger_key($,38));
-      $('#down-btn').click(trigger_key($,40));
-      $('#b-btn').click(trigger_key($,98));
-      $('#a-btn').click(trigger_key($,97));
-      $('#select-btn').click(trigger_key($,32));
-      $('#start-btn').click(trigger_key($,10));
+      trig_key('#left-btn',37);
+      trig_key('#right-btn',39);
+      trig_key('#up-btn',38);
+      trig_key('#down-btn',40);
+      trig_key('#b-btn',98);
+      trig_key('#a-btn',97);
+      trig_key('#select-btn',32);
+      trig_key('#start-btn',10);
     });
   });
   </script>
