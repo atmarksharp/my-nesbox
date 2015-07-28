@@ -104,7 +104,10 @@ function showEmulator($){
   var $contents = $('#contents');
   $contents.html($emu);
 
-  // $("#buttons").removeAttr('hidden');
+  $("#buttons").removeAttr('hidden');
+
+  $emu.tabIndex = 1234;
+  $emu.focus();
 }
 
 function setFlashVars($,romPath,romType){
